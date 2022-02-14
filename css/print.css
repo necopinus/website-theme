@@ -22,3 +22,7 @@ h5,
 h6 {
 	break-after: avoid;
 }
+
+pre {
+	overflow-x: hidden;
+}
