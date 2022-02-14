@@ -1,0 +1,43 @@
+---
+layout: none
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+	<title>{{ site.name | xml_escape }}</title>
+	<link rel="self" href="{{ site.url }}/atom.xml" type="application/atom+xml"/>
+	<link rel="alternate" href="{{ site.url }}"/>
+	<updated>{{ site.time | date_to_xmlschema }}</updated>
+	<author>
+		<name>Nathan Acks</name>
+	</author>
+	<id>{{ site.url | xml_escape }}</id>
+	<generator uri="https://jekyllrb.com" version="{{ jekyll.version }}">Jekyll v{{ jekyll.version }}</generator>
+	<icon>{{ site.url | append: site.icon | xml_escape }}</icon>
+	<logo>{{ site.url | append: site.image | xml_escape }}</logo>
+	<rights>© Nathan Acks</rights>
+
+	{% assign post_list = "" | split: "" %}
+
+	{% for the_page in site.pages %}
+		{% assign page_path_array = the_page.url | split: "/" %}
+
+		{% if page_path_array[1] == "log" or page_path_array[1] == "engagement" or page_path_array[1] == "wedding" or page_path_array[1] == "essays" or page_path_array[1] == "newsletters" or page_path_array[1] == "photography" or page_path_array[1] == "poetry" %}
+			{% assign post_list = post_list | push: the_page %}
+		{% endif %}
+	{% endfor %}
+	{% assign post_list = post_list | uniq | sort: "url" | reverse %}
+
+	{% for the_post in post_list %}
+		<entry>
+			<title>{{ the_post.title | xml_escape }}</title>
+			<link rel="alternate" href="{{ site.url }}{{ the_post.url }}"/>
+			<id>{{ site.url }}{{ the_post.url }}</id>
+			<published>{{ the_post.name | slice: 0, 10 | date_to_xmlschema }}</published>
+			<updated>{{ the_post.name | slice: 0, 10 | date_to_xmlschema }}</updated>
+			<content type="html">{{ the_post.content | markdownify | smartify | xml_escape }}</content>
+			{% assign page_path_array = the_post.url | split: "/" %}
+			<rights>{% if site.name == "Château MaxMin()" %}{% if page_path_array[1] == "engagement" or page_path_array[1] == "wedding" %}Photography © Carl Bower, all other content © Nathan Acks{% else %}© Nathan Acks{% endif %}{% else %}© Nathan Acks{% endif %}</rights>
+			<category term="{{ page_path_array[1] | split: '/' | first | xml_escape }}"/>
+		</entry>
+	{% endfor %}
+</feed>

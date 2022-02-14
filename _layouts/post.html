@@ -1,0 +1,49 @@
+---
+layout: navigation
+---
+<article class="outer-wrapper">
+	<div class="inner-wrapper">
+		{{ content }}
+	</div>
+</article>
+<nav class="outer-wrapper">
+	<div class="inner-wrapper">
+		{% assign page_path_array = page.url | split: "/" %}
+		{% assign category_name = page_path_array[1] %}
+
+		{% assign post_list = "" | split: "" %}
+
+		{% for the_page in site.pages %}
+			{% assign page_path_array = the_page.url | split: "/" %}
+			{% if page_path_array[1] == category_name %}
+				{% assign post_list = post_list | push: the_page %}
+			{% endif %}
+		{% endfor %}
+		{% assign post_list = post_list | uniq | sort: "url" %}
+
+		{% for the_post in post_list %}
+			{% if the_post.url == page.url %}
+				{% assign post_index = forloop.index0 %}
+				{% break %}
+			{% endif %}
+		{% endfor %}
+
+		{% assign post_before = post_index | minus: 1 %}
+		{% assign post_after = post_index | plus: 1 %}
+		{% assign post_last = post_list.size | minus: 1 %}
+
+		<ul>
+			{% if post_before < 0 %}
+				<li><span class="inactive-link"><span aria-hidden="true">&lt;</span> Previous</span></li>
+			{% else %}
+				<li><a href="{{ post_list[post_before].url }}" class="inactive-link"><span aria-hidden="true">&lt;</span> Previous</a></li>
+			{% endif %}
+			<li><a href="/{{ category_name }}.html"><span aria-hidden="true">🏠</span> Category Home</a></li>
+			{% if post_after > post_last %}
+				<li><span class="inactive-link">Next <span aria-hidden="true">&gt;</span></span></li>
+			{% else %}
+				<li><a href="{{ post_list[post_after].url }}" class="inactive-link">Next <span aria-hidden="true">&gt;</span></a></li>
+			{% endif %}
+		</ul>
+	</div>
+</nav>
