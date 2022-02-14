@@ -34,15 +34,15 @@ layout: navigation
 
 		<ul>
 			{% if post_before < 0 %}
-				<li><span class="inactive-link"><span aria-hidden="true">&lt;</span> Previous</span></li>
+				<li><span class="inactive-link"><span aria-hidden="true">‹</span> Previous</span></li>
 			{% else %}
-				<li><a href="{{ post_list[post_before].url }}" class="inactive-link"><span aria-hidden="true">&lt;</span> Previous</a></li>
+				<li><a href="{{ post_list[post_before].url }}" class="inactive-link"><span aria-hidden="true">‹</span> Previous</a></li>
 			{% endif %}
 			<li><a href="/{{ category_name }}.html"><span aria-hidden="true">🏠</span> Category Home</a></li>
 			{% if post_after > post_last %}
-				<li><span class="inactive-link">Next <span aria-hidden="true">&gt;</span></span></li>
+				<li><span class="inactive-link">Next <span aria-hidden="true">›</span></span></li>
 			{% else %}
-				<li><a href="{{ post_list[post_after].url }}" class="inactive-link">Next <span aria-hidden="true">&gt;</span></a></li>
+				<li><a href="{{ post_list[post_after].url }}" class="inactive-link">Next <span aria-hidden="true">›</span></a></li>
 			{% endif %}
 		</ul>
 	</div>
