@@ -1,6 +1,6 @@
 body {
 	font-size: 12pt;
-	font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Roboto, "Droid Sans", Oxygen, "Fira Sans", Ubuntu, Cantarell, "Liberation Sans", "Helvetica Neue", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+	font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Roboto, "Droid Sans", Oxygen, "Fira Sans", Ubuntu, Cantarell, "Helvetica Neue", "Calibri", "Liberation Sans", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 	color: var(--foreground);
 	background-color: var(--background);
 	line-height: 1.618033;
@@ -8,14 +8,21 @@ body {
 
 code,
 kbd {
+	font-size: 98.3819%;
 	font-family: SFMono-Regular, Menlo, Monaco, "Cascadia Mono", "Segoe UI Mono", Consolas, "Roboto Mono", "Droid Sans Mono", "Fira Mono", "Source Code Pro", "Liberation Mono", "Courier New", Courier, monospace, monospace;
 }
 
 pre {
+	font-size: 98.3819%;
 	font-family: SFMono-Regular, Menlo, Monaco, "Cascadia Mono", "Segoe UI Mono", Consolas, "Roboto Mono", "Droid Sans Mono", "Fira Mono", "Source Code Pro", "Liberation Mono", "Courier New", Courier, monospace, monospace;
 	margin-top: 0;
 	margin-bottom: 0;
 	overflow-x: auto;
+}
+
+pre > code,
+pre > kbd {
+	font-size: 100%;
 }
 
 a {
