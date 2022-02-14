@@ -98,10 +98,14 @@ h6 + ul {
 	margin-top: 0;
 }
 
+p {
+	margin: 1.618033em 0;
+}
+
 ol,
-p,
 ul {
 	margin: 1.618033em 0;
+	padding-left: 2.6180em;
 }
 
 hr {
