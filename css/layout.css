@@ -97,7 +97,9 @@ h6 + ul {
 	margin-top: 0;
 }
 
-p {
+ol,
+p,
+ul {
 	margin: 1.618033em 0;
 }
 
