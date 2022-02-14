@@ -41,12 +41,18 @@
 		<meta property="og:url" content="{{ site.url }}{{ page.url }}">
 
 		<link rel="stylesheet" href="/css/normalize.css">
-		<link rel="stylesheet" href="/css/code-tomorrow-night.css" media="(prefers-color-scheme: light)">
-		<link rel="stylesheet" href="/css/code-tomorrow-night-bright.css" media="(prefers-color-scheme: dark)">
-		<link rel="stylesheet" href="/css/page-tomorrow.css" media="(prefers-color-scheme: light)">
-		<link rel="stylesheet" href="/css/page-tomorrow-night.css" media="(prefers-color-scheme: dark)">
+		{% if page_path_array[1] == "engagement" or page_path_array[1] == "wedding" or page_path_array[1] == "digital-orrery" or page_path_array[1] == "photography" %}
+			<link rel="stylesheet" href="/css/code-tomorrow-night-bright.css">
+			<link rel="stylesheet" href="/css/page-tomorrow-night.css">
+		{% else %}
+			<link rel="stylesheet" href="/css/code-tomorrow-night.css" media="(prefers-color-scheme: light)">
+			<link rel="stylesheet" href="/css/code-tomorrow-night-bright.css" media="(prefers-color-scheme: dark)">
+			<link rel="stylesheet" href="/css/page-tomorrow.css" media="(prefers-color-scheme: light)">
+			<link rel="stylesheet" href="/css/page-tomorrow-night.css" media="(prefers-color-scheme: dark)">
+		{% endif %}
 		<link rel="stylesheet" href="/css/layout.css">
 		<link rel="stylesheet" href="/css/print.css" media="print">
+		<link rel="stylesheet" href="/css/code-tomorrow.css" media="print">
 	</head>
 	<body id="{{ page.name | replace: '.md', '' }}">
 		{{ content }}

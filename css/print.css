@@ -1,1 +1,24 @@
-/* TODO */
+body {
+	font-family: "Tinos", "Noto Serif", "Times", "Times New Roman", "Liberation Serif", serif;
+	color: black;
+	background-color: white;
+}
+
+a {
+	color: blue;
+	text-decoration: underline;
+}
+
+footer,
+nav {
+	display: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	break-after: avoid;
+}
