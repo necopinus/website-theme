@@ -54,7 +54,7 @@
 		<link rel="stylesheet" href="/css/print.css" media="print">
 		<link rel="stylesheet" href="/css/code-tomorrow.css" media="print">
 	</head>
-	<body id="{{ page.name | replace: '.md', '' }}">
+	<body class="{% if site.name == 'Cardboard Iguana Security' %}cardboard-iguana{% elsif site.name == 'Château MaxMin()' %}chateaumaxmin{% elsif site.name == 'necopinus.xyz' %}necopinus{% endif %}" id="{{ page.name | replace: '.md', '' }}">
 		{{ content }}
 		<footer class="outer-wrapper">
 			<ul>
