@@ -4,7 +4,9 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width">
 
-		<title>{{ page.title }}</title>
+		{% assign page_title = page.title | remove: "🎐" | remove: "📸" | remove: "📯" | remove: "🌱" | remove: "✒️" | remove: "📷" | remove: "🔮" | remove: "🏡" | remove: "📓" | remove: "🪵" | trim %}
+
+		<title>{{ page_title }}</title>
 
 		<link rel="icon" href="{{ site.icon }}">
 		<link rel="alternate" type="application/atom+xml" title="{{ site.title }}" href="/atom.xml">
@@ -30,12 +32,12 @@
 
 		<meta name="twitter:card" content="summary_large_image">
 		<meta name="twitter:creator" content="@necopinus">
-		<meta name="twitter:title" content="{{ page.title }}">
+		<meta name="twitter:title" content="{{ page_title }}">
 		<meta name="twitter:description" content="{{ page_description }}">
 		<meta name="twitter:image" content="{{ site.url }}{{ page.image }}">
 
 		<meta property="og:type" content="article">
-		<meta property="og:title" content="{{ page.title }}">
+		<meta property="og:title" content="{{ page_title }}">
 		<meta property="og:description" content="{{ page_description }}">
 		<meta property="og:image" content="{{ site.url }}{{ page.image }}">
 		<meta property="og:url" content="{{ site.url }}{{ page.url }}">
