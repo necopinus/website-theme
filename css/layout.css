@@ -32,15 +32,7 @@ a {
 
 a:active,
 a:hover {
-	color: var(--aqua);
-	text-decoration: underline;
-}
-
-footer a:active,
-footer a:hover,
-nav a:active,
-nav a:hover {
-	text-decoration: none;
+	color: var(--purple);
 }
 
 h1 {
@@ -118,7 +110,12 @@ ul {
 hr {
 	border: 0;
 	border-bottom: 1px solid var(--foreground);
-	margin: 1.618033em 0;
+	margin: 1.618033em auto;
+	width: 61.8033%;
+}
+
+hr:last-of-type {
+	width: 100%
 }
 
 table {

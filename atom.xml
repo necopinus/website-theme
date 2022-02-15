@@ -4,11 +4,18 @@ layout: none
 <?xml version="1.0" encoding="UTF-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 	<title>{{ site.name | xml_escape }}</title>
+	{% if site.name == "Cardboard Iguana Security" %}
+		<subtitle>Hacker&rsquo;s Log</subtitle>
+	{% elsif site.name == "necopinus.xyz" %}
+		<subtitle>Personal Log</subtitle>
+	{% endif %}
 	<link rel="self" href="{{ site.url }}/atom.xml" type="application/atom+xml"/>
 	<link rel="alternate" href="{{ site.url }}"/>
 	<updated>{{ site.time | date_to_xmlschema }}</updated>
 	<author>
 		<name>Nathan Acks</name>
+		<email>nathan.acks@{{ site.url | replace: "https://" }}</email>
+		<uri>{{ site.url }}</uri>
 	</author>
 	<id>{{ site.url | xml_escape }}</id>
 	<generator uri="https://jekyllrb.com" version="{{ jekyll.version }}">Jekyll v{{ jekyll.version }}</generator>
@@ -27,17 +34,35 @@ layout: none
 	{% endfor %}
 	{% assign post_list = post_list | uniq | sort: "url" | reverse %}
 
+	{% assign full_href = site.url | prepend: 'href="' | append: "/" %}
+
 	{% for the_post in post_list %}
-		<entry>
-			<title>{{ the_post.title | xml_escape }}</title>
-			<link rel="alternate" href="{{ site.url }}{{ the_post.url }}"/>
-			<id>{{ site.url }}{{ the_post.url }}</id>
-			<published>{{ the_post.name | slice: 0, 10 | date_to_xmlschema }}</published>
-			<updated>{{ the_post.name | slice: 0, 10 | date_to_xmlschema }}</updated>
-			<content type="html">{{ the_post.content | markdownify | smartify | xml_escape }}</content>
-			{% assign page_path_array = the_post.url | split: "/" %}
-			<rights>{% if site.name == "Château MaxMin()" %}{% if page_path_array[1] == "engagement" or page_path_array[1] == "wedding" %}Photography © Carl Bower, all other content © Nathan Acks{% else %}© Nathan Acks{% endif %}{% else %}© Nathan Acks{% endif %}</rights>
-			<category term="{{ page_path_array[1] | split: '/' | first | xml_escape }}"/>
-		</entry>
+		{% unless the_post.content contains "#Draft" %}
+			<entry>
+				<title>{{ the_post.title | xml_escape }}</title>
+				<link rel="alternate" href="{{ site.url }}{{ the_post.url }}"/>
+				<id>{{ site.url }}{{ the_post.url }}</id>
+				<published>{{ the_post.name | slice: 0, 10 | date_to_xmlschema }}</published>
+				<updated>{{ the_post.name | slice: 0, 10 | date_to_xmlschema }}</updated>
+				<content type="html">{{ the_post.content | markdownify | smartify | replace: 'href="/', full_href | xml_escape }}</content>
+				<author>
+					<name>Nathan Acks</name>
+					<email>nathan.acks@{{ site.url | replace: "https://" }}</email>
+					<uri>{{ site.url }}</uri>
+				</author>
+				{% assign page_path_array = the_post.url | split: "/" %}
+				{% if site.name == "Château MaxMin()" %}
+					{% if page_path_array[1] == "engagement" or page_path_array[1] == "wedding" %}
+						<contributor>
+							<name>Carl Bower</name>
+							<email>carl@carlbower.com</email>
+							<uri>https://carlbowerphotos.com</uri>
+						</contributor>
+					{% endif %}
+				{% endif %}
+				<rights>© Nathan Acks{% if site.name == "Château MaxMin()" %}{% if page_path_array[1] == "engagement" or page_path_array[1] == "wedding" %} (content) &amp; Carl Bower (photography){% endif %}{% endif %}</rights>
+				<category term="{{ page_path_array[1] | split: '/' | first | xml_escape }}"/>
+			</entry>
+		{% endunless %}
 	{% endfor %}
 </feed>

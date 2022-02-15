@@ -3,10 +3,20 @@ layout: navigation
 ---
 <article class="outer-wrapper">
 	<div class="inner-wrapper">
-		{{ content }}
+		{% assign page_path_array = page.url | split: "/" %}
+		{% if site.name == "Château MaxMin()" %}
+			{% if page_path_array[1] == "engagement" or page_path_array[1] == "wedding" %}
+				{{ content | replace: "Carl Bower", '<a href="https://carlbowerphotos.com">Carl Bower</a>' }}
+			{% else %}
+				{{ content }}
+			{% endif %}
+		{% else %}
+			{{ content }}
+		{% endif %}
 	</div>
 </article>
-<nav class="outer-wrapper">
+
+<footer class="outer-wrapper">
 	<div class="inner-wrapper">
 		{% assign page_path_array = page.url | split: "/" %}
 		{% assign category_name = page_path_array[1] %}
@@ -38,7 +48,8 @@ layout: navigation
 			{% else %}
 				<li><a href="{{ post_list[post_before].url }}" class="inactive-link"><span aria-hidden="true">‹ </span>Previous</a></li>
 			{% endif %}
-			<li><a href="/{{ category_name }}.html"><span aria-hidden="true">🏠 </span>Category Home</a></li>
+			<li><a href="/{{ category_name }}.html"><span aria-hidden="true">[ </span>Category<span aria-hidden="true"> ]</span></a></li>
+			<li><a href="https://github.com/necopinus/{{ site.url  | replace: 'https://' }}/blob/main{{ page.path }}"><span aria-hidden="true">[ </span>Source<span aria-hidden="true"> ]</span></a></li>
 			{% if post_after > post_last %}
 				<li><span class="inactive-link">Next<span aria-hidden="true"> ›</span></span></li>
 			{% else %}
@@ -46,4 +57,4 @@ layout: navigation
 			{% endif %}
 		</ul>
 	</div>
-</nav>
+</footer>
