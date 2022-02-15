@@ -49,7 +49,7 @@ layout: navigation
 				<li><a href="{{ post_list[post_before].url }}" class="inactive-link"><span aria-hidden="true">‹ </span>Previous</a></li>
 			{% endif %}
 			<li><a href="/{{ category_name }}.html"><span aria-hidden="true">[ </span>Category<span aria-hidden="true"> ]</span></a></li>
-			<li><a href="https://github.com/necopinus/{{ site.url  | replace: 'https://' }}/blob/main{{ page.path }}"><span aria-hidden="true">[ </span>Source<span aria-hidden="true"> ]</span></a></li>
+			<li><a href="https://github.com/necopinus/{{ site.url  | replace: 'https://' }}/blob/main/{{ page.path }}"><span aria-hidden="true">[ </span>Source<span aria-hidden="true"> ]</span></a></li>
 			{% if post_after > post_last %}
 				<li><span class="inactive-link">Next<span aria-hidden="true"> ›</span></span></li>
 			{% else %}

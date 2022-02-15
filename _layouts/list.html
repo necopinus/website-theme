@@ -1,13 +1,8 @@
 ---
-layout: default
+layout: navigation
 ---
 <div class="outer-wrapper">
 	<div class="inner-wrapper">
-		{% if site.name == "Cardboard Iguana Security" %}
-			<div aria-hidden="true" id="logo">📦🦎🛡️</div>
-		{% else %}
-			<img src="{{ site.icon }}" alt="{{ site.name }}" aria-hidden="true" id="logo">
-		{% endif %}
 		{{ content }}
 	</div>
 </div>

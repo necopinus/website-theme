@@ -5,7 +5,7 @@ layout: none
 <feed xmlns="http://www.w3.org/2005/Atom">
 	<title>{{ site.name | xml_escape }}</title>
 	{% if site.name == "Cardboard Iguana Security" %}
-		<subtitle>Hacker&rsquo;s Log</subtitle>
+		<subtitle>Hacker’s Log</subtitle>
 	{% elsif site.name == "necopinus.xyz" %}
 		<subtitle>Personal Log</subtitle>
 	{% endif %}
