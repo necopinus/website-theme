@@ -4,8 +4,21 @@ body {
 	background-color: white;
 }
 
+code,
+kbd {
+	font-size: 87.0557%;
+}
+
+pre {
+	font-size: 83.8196%;
+}
+
+pre > code,
+pre > kbd {
+	font-size: 100%;
+}
+
 a {
-	color: blue;
 	text-decoration: underline;
 }
 
@@ -23,6 +36,30 @@ h6 {
 	break-after: avoid;
 }
 
+h1:first-of-type {
+	margin-top: 0;
+}
+
 pre {
 	overflow-x: hidden;
+}
+
+/* Per-class and ID styling */
+
+.outer-wrapper {
+	padding: 0;
+}
+
+.inner-wrapper {
+	max-width: none;
+	margin: 0;
+}
+
+div.highlight {
+	padding: 0;
+	border-radius: 0;
+}
+
+pre.highlight {
+	padding: 0;
 }

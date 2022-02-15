@@ -13,7 +13,7 @@ kbd {
 }
 
 pre {
-	font-size: 98.3819%;
+	font-size: 93.5728%;
 	font-family: SFMono-Regular, Menlo, Monaco, "Cascadia Mono", "Segoe UI Mono", Consolas, "Roboto Mono", "Droid Sans Mono", "Fira Mono", "Source Code Pro", "Liberation Mono", "Courier New", Courier, monospace, monospace;
 	margin-top: 0;
 	margin-bottom: 0;
@@ -35,40 +35,42 @@ a:hover {
 	color: var(--purple);
 }
 
+nav {
+	border-bottom: 1px solid var(--foreground-fade);
+}
+
 h1 {
 	font-size: 161.8033%;
-	margin-top: 1.618033em;
-	margin-bottom: 1em;
+	margin: 1.618033em auto 1em auto;
+	padding-bottom: 0.1545em;
+	/* width: 80.5836%; */
+	text-align: center;
+	border-bottom: 1px solid var(--foreground-fade);
 }
 
 h2 {
 	font-size: 131.0820%;
-	margin-top: 1.618033em;
-	margin-bottom: 1em;
+	margin: 1.618033em 0 1em 0;
 }
 
 h3 {
 	font-size: 115.6317%;
-	margin-top: 1.618033em;
-	margin-bottom: 1em;
+	margin: 1.618033em 0 1em 0;
 }
 
 h4 {
 	font-size: 107.8615%;
-	margin-top: 1.618033em;
-	margin-bottom: 1em;
+	margin: 1.618033em 0 1em 0;
 }
 
 h5 {
 	font-size: 103.9537%;
-	margin-top: 1.618033em;
-	margin-bottom: 1em;
+	margin: 1.618033em 0 1em 0;
 }
 
 h6 {
 	font-size: 101.9883%;
-	margin-top: 1.618033em;
-	margin-bottom: 1em;
+	margin: 1.618033em 0 1em 0;
 }
 
 h1 + h2,
@@ -107,15 +109,8 @@ ul {
 	padding-left: 2.6180em;
 }
 
-hr {
-	border: 0;
-	border-bottom: 1px solid var(--foreground);
-	margin: 1.618033em auto;
-	width: 61.8033%;
-}
-
-hr:last-of-type {
-	width: 100%
+img {
+	border-radius: 0.618033rem;
 }
 
 table {
@@ -126,4 +121,65 @@ td,
 th {
 	border: 1px solid var(--foreground);
 	padding: 0.1618033em 0.3236066em;
+}
+
+hr {
+	border: 0;
+	border-bottom: 1px solid var(--foreground-fade);
+	margin: 1.618033em auto;
+	width: 61.8033%;
+}
+
+hr:last-of-type {
+	width: 100%
+}
+
+footer {
+	border-top: 1px solid var(--foreground-fade);
+}
+
+/* Scrollbar styling */
+
+* {
+	scrollbar-width: thin;
+	scrollbar-color: var(--foreground-fade) var(--background);
+ }
+  
+*::-webkit-scrollbar {
+	width: 0.3090rem;
+	height: 0.3090rem;
+}
+  
+*::-webkit-scrollbar-track {
+	background: var(--background);
+}
+  
+*::-webkit-scrollbar-corner {
+	background: var(--background);
+}
+
+*::-webkit-scrollbar-thumb {
+	background-color: var(--foreground-fade);
+	border-radius: 0.1545rem;
+	border: none;
+}  
+
+/* Per-class and ID styling */
+
+.outer-wrapper {
+	padding: 0 1.618033em;
+}
+
+.inner-wrapper {
+	max-width: 42em; /* Should probably be closer to 32em */
+	margin: 0 auto;
+}
+
+div.highlight {
+	padding: 0.3090rem 0.618033rem;
+	border-radius: 0.618033rem;
+}
+
+pre.highlight {
+	padding: 0.3090rem 0;
 }

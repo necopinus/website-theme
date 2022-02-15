@@ -3,6 +3,7 @@
 :root {
 	--background: #1d1f21;
 	--foreground: #c5c8c6;
+	--foreground-fade: #c5c8c69e;
 	--red: #cc6666;
 	--orange: #de935f;
 	--yellow: #f0c674;
