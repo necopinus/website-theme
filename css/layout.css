@@ -39,6 +39,11 @@ nav {
 	border-bottom: 1px solid var(--foreground-fade);
 }
 
+article img {
+	width: 100%;
+	border-radius: 0.618033rem;
+}
+
 h1 {
 	font-size: 161.8033%;
 	margin: 1.618033em auto 1em auto;
@@ -109,10 +114,6 @@ ul {
 	padding-left: 2.6180em;
 }
 
-img {
-	border-radius: 0.618033rem;
-}
-
 table {
 	border-collapse: collapse;
 }
@@ -167,7 +168,7 @@ footer {
 /* Per-class and ID styling */
 
 .outer-wrapper {
-	padding: 0 1.618033em;
+	padding: 0 1.618033rem;
 }
 
 .inner-wrapper {

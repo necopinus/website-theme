@@ -4,7 +4,7 @@ layout: default
 <nav class="outer-wrapper">
 	<div class="inner-wrapper">
 		<ul>
-			<li><a href="/index.html">{% if site.name == "Cardboard Iguana Security" %}<span title="{{ site.name }}" aria-hidden="true" id="logo">📦🦎🛡️</span>{% else %}<img src="{{ site.icon }}" alt="{{ site.name }}" title="{{ site.name }}" aria-hidden="true" id="logo">{% endif %} {{ site.name }}</a></li>
+			<li><a href="/index.html">{% if site.name == "Cardboard Iguana Security" %}<span title="{{ site.name }}" aria-hidden="true" id="logo">📦🦎🛡️</span>{% else %}<img src="/{{ site.icon }}" alt="{{ site.name }}" title="{{ site.name }}" aria-hidden="true" id="logo">{% endif %} {{ site.name }}</a></li>
 			{% if site.name == "Cardboard Iguana Security" %}
 				<li><a href="/log.html"><span aria-hidden="true">🪵 </span>Log</a></li>
 				<li><a href="/notes.html"><span aria-hidden="true">📓 </span>Notes</a></li>

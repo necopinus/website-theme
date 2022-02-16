@@ -1,0 +1,10 @@
+---
+---
+title: {{ site.name }}
+gpubVersion: 1.0.0
+cover: {{ site.cover }}
+index: index.html
+language: en-US
+description: {{ site.description }}
+publishDate: {{ site.time | date: "%Y-%m-%d" }}
+copyright: © {{ site.author }}

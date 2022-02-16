@@ -13,15 +13,15 @@ layout: none
 	<link rel="alternate" href="{{ site.url }}"/>
 	<updated>{{ site.time | date_to_xmlschema }}</updated>
 	<author>
-		<name>Nathan Acks</name>
+		<name>{{ site.author }}</name>
 		<email>nathan.acks@{{ site.url | replace: "https://" }}</email>
 		<uri>{{ site.url }}</uri>
 	</author>
 	<id>{{ site.url | xml_escape }}</id>
 	<generator uri="https://jekyllrb.com" version="{{ jekyll.version }}">Jekyll v{{ jekyll.version }}</generator>
-	<icon>{{ site.url | append: site.icon | xml_escape }}</icon>
+	<icon>{{ site.url | append: "/" | append: site.icon | xml_escape }}</icon>
 	<logo>{{ site.url | append: site.image | xml_escape }}</logo>
-	<rights>© Nathan Acks</rights>
+	<rights>© {{ site.author }}</rights>
 
 	{% assign post_list = "" | split: "" %}
 
@@ -46,7 +46,7 @@ layout: none
 				<updated>{{ the_post.name | slice: 0, 10 | date_to_xmlschema }}</updated>
 				<content type="html">{{ the_post.content | markdownify | smartify | replace: 'href="/', full_href | xml_escape }}</content>
 				<author>
-					<name>Nathan Acks</name>
+					<name>{{ site.author }}</name>
 					<email>nathan.acks@{{ site.url | replace: "https://" }}</email>
 					<uri>{{ site.url }}</uri>
 				</author>
@@ -60,7 +60,7 @@ layout: none
 						</contributor>
 					{% endif %}
 				{% endif %}
-				<rights>© Nathan Acks{% if site.name == "Château MaxMin()" %}{% if page_path_array[1] == "engagement" or page_path_array[1] == "wedding" %} (content) &amp; Carl Bower (photography){% endif %}{% endif %}</rights>
+				<rights>© {{ site.author }}{% if site.name == "Château MaxMin()" %}{% if page_path_array[1] == "engagement" or page_path_array[1] == "wedding" %} (content) &amp; Carl Bower (photography){% endif %}{% endif %}</rights>
 				<category term="{{ page_path_array[1] | split: '/' | first | xml_escape }}"/>
 			</entry>
 		{% endunless %}
