@@ -34,13 +34,13 @@ layout: navigation
 		{% assign post_last = post_list.size | minus: 1 %}
 
 		<ul>
-			<li>©️ {{ site.author }}{% if page_path_array[1] == "engagement" or page_path_array[1] == "wedding" %}, photography ©️ Carl Bower{% endif %}</li>
+			<li>©️ {{ site.author }}{% if page_path_array[1] == "engagement" or page_path_array[1] == "wedding" %} (text)<br>©️ Carl Bower (photos){% endif %}</li>
 			{% if post_before < 0 %}
 				<li><span class="inactive-link"><span aria-hidden="true">‹ </span>Previous</span></li>
 			{% else %}
 				<li><a href="{{ post_list[post_before].url }}" class="inactive-link"><span aria-hidden="true">‹ </span>Previous</a></li>
 			{% endif %}
-			<li><a href="/{{ category_name }}.html"><span aria-hidden="true">[ </span>Category<span aria-hidden="true"> ]</span></a></li>
+			<li><a href="/{{ category_name }}.html"><span aria-hidden="true">[ </span>Return<span aria-hidden="true"> ]</span></a></li>
 			{% if post_after > post_last %}
 				<li><span class="inactive-link">Next<span aria-hidden="true"> ›</span></span></li>
 			{% else %}

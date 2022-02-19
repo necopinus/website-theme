@@ -147,16 +147,32 @@ footer ul {
 }
 
 footer ul li {
+	flex: 1 1 0px;
 	display: block;
+	padding: 0 0.3236066em;
 	text-align: center;
+	white-space: nowrap;
 }
 
 footer ul li:first-child {
+	padding-left: 0;
+	white-space: normal;
+}
+
+footer ul li:first-child,
+footer ul li:nth-last-child(2) {
+	flex: 2 2 0px;
 	text-align: left;
 }
 
-footer ul li:last-child {
+footer ul li:last-child,
+footer ul li:nth-child(2) {
+	flex: 2 2 0px;
 	text-align: right;
+}
+
+footer ul li:last-child {
+	padding-right: 0;
 }
 
 /* Scrollbar styling */
