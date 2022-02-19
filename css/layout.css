@@ -176,6 +176,11 @@ footer {
 	margin: 0 auto;
 }
 
+.table-wrapper {
+	max-width: 42em;
+	overflow-x: auto;
+}
+
 div.highlight {
 	padding: 0.3090rem 0.618033rem;
 	border-radius: 0.618033rem;
