@@ -140,6 +140,25 @@ footer {
 	border-top: 1px solid var(--foreground-fade);
 }
 
+footer ul {
+	padding: 0;
+	display: flex;
+	justify-content: center;
+}
+
+footer ul li {
+	display: block;
+	text-align: center;
+}
+
+footer ul li:first-child {
+	text-align: left;
+}
+
+footer ul li:last-child {
+	text-align: right;
+}
+
 /* Scrollbar styling */
 
 * {
@@ -189,4 +208,16 @@ div.highlight {
 
 pre.highlight {
 	padding: 0.3090rem 0;
+}
+
+/* Page-specific styling */
+
+#README #logo {
+	width: fit-content;
+	margin: 0.3090em auto 0.1545em auto;
+	font-size: 485.4099%;
+}
+
+#README #logo + h1 {
+	margin-top: 0;
 }
