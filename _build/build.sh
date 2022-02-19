@@ -63,10 +63,11 @@ npm install
 # result in invalid HTML/CSS/JS output! Fleek's optimization should
 # therefore be turned off when "hand optimization" like this is used.
 #
-#chmod +x bin/minify
-#mv _site _site.original
-#(
-#	cd _site.original
-#	../.bin/minify --all --recursive --sync --output ../_site .
-#)
-#rm -rf _site.original
+chmod +x _build/minify
+cp -rf _site _site.original
+rm -rf _site/*
+(
+	cd _site.original
+	../_build/minify --all --recursive --sync --output ../_site .
+)
+rm -rf _site.original

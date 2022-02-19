@@ -116,6 +116,7 @@ ul {
 
 table {
 	border-collapse: collapse;
+	margin: 0 auto;
 }
 
 td,
@@ -172,12 +173,12 @@ footer {
 }
 
 .inner-wrapper {
-	max-width: 42em; /* Should probably be closer to 32em */
+	max-width: 34rem;
 	margin: 0 auto;
 }
 
 .table-wrapper {
-	max-width: 42em;
+	max-width: 34rem;
 	overflow-x: auto;
 }
 
