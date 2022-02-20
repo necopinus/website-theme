@@ -2,24 +2,22 @@
 layout: default
 ---
 <nav class="outer-wrapper">
-	<div class="inner-wrapper">
-		<ul>
-			<li><a href="/index.html">{% if site.name == "Cardboard Iguana Security" %}<span title="{{ site.name }}" aria-hidden="true" id="logo">📦🦎🛡️</span>{% else %}<img src="/{{ site.icon }}" alt="{{ site.name }}" title="{{ site.name }}" aria-hidden="true" id="logo">{% endif %} {{ site.name }}</a></li>
-			{% if site.name == "Cardboard Iguana Security" %}
-				<li><a href="/log.html"><span aria-hidden="true">🪵 </span>Log</a></li>
-				<li><a href="/notes.html"><span aria-hidden="true">📓 </span>Notes</a></li>
-				<li><a href="/atom.xml"><span aria-hidden="true">📰 </span>Feed</a></li>
-			{% elsif site.name == "Château MaxMin()" %}
-				<li><a href="/engagement.html"><span aria-hidden="true">💍 </span>Engagement</a></li>
-				<li><a href="/wedding.html"><span aria-hidden="true">💒 </span>Wedding</a></li>
-			{% elsif site.name == "necopinus.xyz" %}
-				<li><a href="/photography.html"><span aria-hidden="true">📸 </span>Photography</a></li>
-				<li><a href="/essays.html"><span aria-hidden="true">✒️ </span>Essays</a></li>
-				<li><a href="/poetry.html"><span aria-hidden="true">🎐 </span>Poetry</a></li>
-				<li><a href="/newsletters.html"><span aria-hidden="true">📯 </span>Newsletters</a></li>
-				<li><a href="/atom.xml"><span aria-hidden="true">📰 </span>Feed</a></li>
-			{% endif %}
-		</ul>
-	</div>
+	<ul>
+		<li><a href="/index.html">{% if site.name == "Cardboard Iguana Security" %}<span title="{{ site.name }}" aria-hidden="true" id="logo">📦🦎🛡️</span>{% else %}<img src="/{{ site.icon }}" alt="{{ site.name }}" title="{{ site.name }}" aria-hidden="true" id="logo">{% endif %}<span class="site-title"> {{ site.name }}</span></a></li>
+		{% if site.name == "Cardboard Iguana Security" %}
+			<li><a href="/log.html"><span aria-hidden="true">🪵 </span>Log</a></li>
+			<li><a href="/notes.html"><span aria-hidden="true">📓 </span>Notes</a></li>
+			<li><a href="/atom.xml"><span aria-hidden="true">📰 </span>Feed</a></li>
+		{% elsif site.name == "Château MaxMin()" %}
+			<li><a href="/engagement.html"><span aria-hidden="true">💍 </span>Engagement</a></li>
+			<li><a href="/wedding.html"><span aria-hidden="true">💒 </span>Wedding</a></li>
+		{% elsif site.name == "necopinus.xyz" %}
+			<li><a href="/photography.html"><span aria-hidden="true">📸 </span>Photography</a></li>
+			<li><a href="/essays.html"><span aria-hidden="true">✒️ </span>Essays</a></li>
+			<li><a href="/poetry.html"><span aria-hidden="true">🎐 </span>Poetry</a></li>
+			<li><a href="/newsletters.html"><span aria-hidden="true">📯 </span>Newsletters</a></li>
+			<li><a href="/atom.xml"><span aria-hidden="true">📰 </span>Feed</a></li>
+		{% endif %}
+	</ul>
 </nav>
 {{ content }}

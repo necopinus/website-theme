@@ -8,45 +8,45 @@ layout: navigation
 </article>
 
 <footer class="outer-wrapper">
-	<div class="inner-wrapper">
-		{% assign page_path_array = page.url | split: "/" %}
-		{% assign category_name = page_path_array[1] %}
+	{% assign page_path_array = page.url | split: "/" %}
+	{% assign category_name = page_path_array[1] %}
 
-		{% assign post_list = "" | split: "" %}
+	{% assign post_list = "" | split: "" %}
 
-		{% for the_page in site.pages %}
-			{% assign page_path_array = the_page.url | split: "/" %}
-			{% if page_path_array[1] == category_name %}
-				{% assign post_list = post_list | push: the_page %}
-			{% endif %}
-		{% endfor %}
-		{% assign post_list = post_list | uniq | sort: "url" %}
+	{% for the_page in site.pages %}
+		{% assign page_path_array = the_page.url | split: "/" %}
+		{% if page_path_array[1] == category_name %}
+			{% assign post_list = post_list | push: the_page %}
+		{% endif %}
+	{% endfor %}
+	{% assign post_list = post_list | uniq | sort: "url" %}
 
-		{% for the_post in post_list %}
-			{% if the_post.url == page.url %}
-				{% assign post_index = forloop.index0 %}
-				{% break %}
-			{% endif %}
-		{% endfor %}
+	{% for the_post in post_list %}
+		{% if the_post.url == page.url %}
+			{% assign post_index = forloop.index0 %}
+			{% break %}
+		{% endif %}
+	{% endfor %}
 
-		{% assign post_before = post_index | minus: 1 %}
-		{% assign post_after = post_index | plus: 1 %}
-		{% assign post_last = post_list.size | minus: 1 %}
+	{% assign post_before = post_index | minus: 1 %}
+	{% assign post_after = post_index | plus: 1 %}
+	{% assign post_last = post_list.size | minus: 1 %}
 
-		<ul>
-			<li>©️ {{ site.author }}{% if page_path_array[1] == "engagement" or page_path_array[1] == "wedding" %} (text)<br>©️ Carl Bower (photos){% endif %}</li>
-			{% if post_before < 0 %}
-				<li><span class="inactive-link"><span aria-hidden="true">‹ </span>Previous</span></li>
-			{% else %}
-				<li><a href="{{ post_list[post_before].url }}" class="inactive-link"><span aria-hidden="true">‹ </span>Previous</a></li>
-			{% endif %}
-			<li><a href="/{{ category_name }}.html"><span aria-hidden="true">[ </span>Return<span aria-hidden="true"> ]</span></a></li>
-			{% if post_after > post_last %}
-				<li><span class="inactive-link">Next<span aria-hidden="true"> ›</span></span></li>
-			{% else %}
-				<li><a href="{{ post_list[post_after].url }}" class="inactive-link">Next<span aria-hidden="true"> ›</span></a></li>
-			{% endif %}
-			<li><a href="https://github.com/necopinus/{{ site.url  | replace: 'https://' }}/blob/main/{{ page.path }}"><span aria-hidden="true">[ </span>Source<span aria-hidden="true"> ]</span></a></li>
-		</ul>
-	</div>
+	<ul>
+		<li>©️ {{ site.author }}{% if page_path_array[1] == "engagement" or page_path_array[1] == "wedding" %} (text)<br>©️ Carl Bower (photo){% endif %}</li>
+		<li>
+		{% if post_before < 0 %}
+			<span class="inactive-link"><span aria-hidden="true">‹ </span>Previous</span>
+		{% else %}
+			<a href="{{ post_list[post_before].url }}" class="inactive-link"><span aria-hidden="true">‹ </span>Previous</a>
+		{% endif %}
+		<span aria-hidden="true"> | </span>
+		{% if post_after > post_last %}
+			<span class="inactive-link">Next<span aria-hidden="true"> ›</span></span>
+		{% else %}
+			<a href="{{ post_list[post_after].url }}" class="inactive-link">Next<span aria-hidden="true"> ›</span></a>
+		{% endif %}
+		</li>
+		<li><a href="https://github.com/necopinus/{{ site.url  | replace: 'https://' }}/blob/main/{{ page.path }}"><span aria-hidden="true">[ </span>Source<span aria-hidden="true"> ]</span></a></li>
+	</ul>
 </footer>

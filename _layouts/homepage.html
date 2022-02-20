@@ -4,7 +4,7 @@ layout: default
 <div class="outer-wrapper">
 	<div class="inner-wrapper">
 		{% if site.name == "Cardboard Iguana Security" %}
-			<div aria-hidden="true" id="logo">📦🦎🛡️</div>
+			<div title="{{ site.name }}" aria-hidden="true" id="logo">📦🦎🛡️</div>
 		{% else %}
 			<img src="/{{ site.icon }}" alt="{{ site.name }}" aria-hidden="true" id="logo">
 		{% endif %}
@@ -13,10 +13,8 @@ layout: default
 </div>
 
 <footer class="outer-wrapper">
-	<div class="inner-wrapper">
-		<ul>
-			<li>©️ {{ site.author }}</li>
-			<li><a href="https://github.com/necopinus/{{ site.url  | replace: 'https://' }}/blob/main/{{ page.path }}"><span aria-hidden="true">[ </span>Source<span aria-hidden="true"> ]</span></a></li>
-		</ul>
-	</div>
+	<ul>
+		<li>©️ {{ site.author }}</li>
+		<li><a href="https://github.com/necopinus/{{ site.url  | replace: 'https://' }}/blob/main/{{ page.path }}"><span aria-hidden="true">[ </span>Source<span aria-hidden="true"> ]</span></a></li>
+	</ul>
 </footer>
