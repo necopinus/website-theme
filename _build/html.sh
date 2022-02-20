@@ -9,7 +9,7 @@ fi
 
 # Clean destination directory.
 #
-[[ -d _site ]] && rm --recursive --force _site
+[[ -d _site ]] && rm -rf _site
 
 # Build the site using either system Jekyll (assume that our
 # environment has installed the necessary gems automatically) or via
