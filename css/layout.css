@@ -84,8 +84,11 @@ body > div {
 }
 
 article img {
-	width: 100%;
+	width: 48rem;
+	margin-left: -8rem;
 	margin-bottom: -0.46352475em;
+	position: relative;
+	left: 0;
 	border-radius: 0.618033rem;
 }
 
