@@ -70,7 +70,13 @@ nav ul li:first-child {
 	font-weight: bold;
 }
 
-nav ul li:first-child a {
+nav ul li:first-child a,
+h1 a, /* Hide inappropriate iOS linkification */
+h2 a,
+h3 a,
+h4 a,
+h5 a,
+h6 a {
 	color: var(--foreground);
 }
 
