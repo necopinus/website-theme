@@ -40,9 +40,3 @@ footer ul li:last-child {
 	text-align: center;
 	order: 2;
 }
-
-/* General per-class and ID styling */
-
-.site-title {
-	display: none;
-}
