@@ -32,7 +32,7 @@ layout: none
 			{% assign post_list = post_list | push: the_page %}
 		{% endif %}
 	{% endfor %}
-	{% assign post_list = post_list | uniq | sort: "url" | reverse %}
+	{% assign post_list = post_list | uniq | sort: "name" | reverse %}
 
 	{% assign full_href = site.url | prepend: 'href="' | append: "/" %}
 
