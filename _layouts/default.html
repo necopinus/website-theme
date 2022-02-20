@@ -4,7 +4,18 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width">
 
-		{% assign page_title = page.title | remove: "🎐" | remove: "📸" | remove: "📯" | remove: "🌱" | remove: "✒️" | remove: "📷" | remove: "🔮" | remove: "🏡" | remove: "📓" | remove: "🪵" | trim %}
+		{% assign page_title = page.title %}
+		{% unless page_title %}
+			{% assign title_length = page.name.size | minus: 14 %}
+			{% assign page_title_array = page.name | slice: 11, title_length | split: "-" %}
+			{% assign page_title = "" %}
+			{% for word in page_title_array %}
+				{% assign capitalized_word = word | capitalize %}
+				{% assign page_title = page_title | append: " " | append: capitalized_word | replace: " 0", " " %}
+			{% endfor %}
+		{% endunless %}
+
+		{% assign page_title = page_title | remove: "🎐" | remove: "📸" | remove: "📯" | remove: "🌱" | remove: "✒️" | remove: "📷" | remove: "🔮" | remove: "🏡" | remove: "📓" | remove: "🪵" | remove: "💒" | remove: "💍" | remove: "📦" | remove: "🦎" | remove: "🛡️" | remove: "🐦" | remove: "🐙" | remove: "🧑‍💻" | remove: "🌃" | remove: "🔏" | remove: "📧" | remove: "👤" | remove: "🏷️" | remove: "👥" | remove: "📅" | lstrip | rstrip | smartify %}
 
 		<title>{{ page_title }}</title>
 
