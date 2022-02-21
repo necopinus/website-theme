@@ -55,10 +55,6 @@ npm install
 # simply leaves it untouched. We therefore return "true" at the end of
 # the process in order to prevent Fleek from seeing this as a bad build.
 #
-# WARNING! Running `minify` AND Fleek's built-in optimization tends to
-# result in invalid HTML/CSS/JS output! Fleek's optimization should
-# therefore be turned off when "hand optimization" like this is used.
-#
 chmod +x _build/minify
 cp -rf _site _site.original
 rm -rf _site/*
