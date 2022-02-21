@@ -51,10 +51,6 @@ npm install
 # but Fleek doesn't support installing our own tools (otherwise we'd
 # just `apt install minify`).
 #
-# Note that sometimes `minify` will fail on a file, but when it does it
-# simply leaves it untouched. We therefore return "true" at the end of
-# the process in order to prevent Fleek from seeing this as a bad build.
-#
 chmod +x _build/minify
 cp -rf _site _site.original
 rm -rf _site/*
