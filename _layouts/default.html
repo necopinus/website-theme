@@ -41,16 +41,26 @@
 		
 		<meta name="description" content="{{ page_description }}">
 
+		{% assign page_image = site.image %}
+		{% if page.image %}
+			{% assign page_image = page.image %}
+		{% endif %}
+		{% assign first_image_character = page_image | slice: 0 %}
+		{% unless first_image_character == "/" %}
+			{% assign page_processed_name = page.name | replace: ".md", ".html" %}
+			{% assign page_image = page.url | replace: page_processed_name, "" | append: page.image %}
+		{% endunless %}
+
 		<meta name="twitter:card" content="summary_large_image">
 		<meta name="twitter:creator" content="@necopinus">
 		<meta name="twitter:title" content="{{ page_title }}">
 		<meta name="twitter:description" content="{{ page_description }}">
-		<meta name="twitter:image" content="{{ site.url }}{{ page.image }}">
+		<meta name="twitter:image" content="{{ site.url }}{{ page_image }}">
 
 		<meta property="og:type" content="article">
 		<meta property="og:title" content="{{ page_title }}">
 		<meta property="og:description" content="{{ page_description }}">
-		<meta property="og:image" content="{{ site.url }}{{ page.image }}">
+		<meta property="og:image" content="{{ site.url }}{{ page_image }}">
 		<meta property="og:url" content="{{ site.url }}{{ page.url }}">
 
 		<link rel="stylesheet" href="/css/normalize.css">
