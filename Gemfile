@@ -11,8 +11,5 @@ gem "jekyll-optional-front-matter"
 # https://github.com/benbalter/jekyll-relative-links
 gem "jekyll-relative-links"
 
-# https://github.com/merlos/jekyll-auto-image
-gem "jekyll-auto-image"
-
 # https://github.com/benbalter/jekyll-readme-index
 gem "jekyll-readme-index"

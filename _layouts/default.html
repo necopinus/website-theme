@@ -42,9 +42,17 @@
 		<meta name="description" content="{{ page_description }}">
 
 		{% assign page_image = site.image %}
-		{% if page.image %}
-			{% assign page_image = page.image %}
-		{% endif %}
+		{% assign page_fragments = page.content | split: "![" %}
+		{% for page_fragment in page_fragments %}
+			{% if page_fragment contains "](" %}
+				{% assign image_fragments = page_fragment | split: "](" %}
+				{% for image_fragment in image_fragments %}
+					{% if image_fragment contains ".webp)" or image_fragment contains ".jpg)" or image_fragment contains ".png)" or image_fragment contains ".gif)" %}
+						{% assign page_image = image_fragment | split: ")" | first %}
+					{% endif %}
+				{% endfor %}
+			{% endif %}
+		{% endfor %}
 		{% assign first_image_character = page_image | slice: 0 %}
 		{% unless first_image_character == "/" %}
 			{% assign page_processed_name = page.name | replace: ".md", ".html" %}
