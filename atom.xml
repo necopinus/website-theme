@@ -29,7 +29,7 @@ layout: none
 		{% assign page_path_array = the_page.url | split: "/" %}
 
 		{% if page_path_array[1] == "log" or page_path_array[1] == "engagement" or page_path_array[1] == "wedding" or page_path_array[1] == "essays" or page_path_array[1] == "newsletters" or page_path_array[1] == "photography" or page_path_array[1] == "poetry" %}
-			
+			{% unless the_page.content contains "#Draft" %}
 				{% assign post_list = post_list | push: the_page %}
 			{% endunless %}
 		{% endif %}
