@@ -29,7 +29,9 @@ layout: none
 		{% assign page_path_array = the_page.url | split: "/" %}
 
 		{% if page_path_array[1] == "log" or page_path_array[1] == "engagement" or page_path_array[1] == "wedding" or page_path_array[1] == "essays" or page_path_array[1] == "newsletters" or page_path_array[1] == "photography" or page_path_array[1] == "poetry" %}
-			{% assign post_list = post_list | push: the_page %}
+			
+				{% assign post_list = post_list | push: the_page %}
+			{% endunless %}
 		{% endif %}
 	{% endfor %}
 	{% assign post_list = post_list | uniq | sort: "name" | reverse %}
@@ -37,32 +39,30 @@ layout: none
 	{% assign full_href = site.url | prepend: 'href="' | append: "/" %}
 
 	{% for the_post in post_list %}
-		{% unless the_post.content contains "#Draft" %}
-			<entry>
-				<title>{{ the_post.title | xml_escape }}</title>
-				<link rel="alternate" href="{{ site.url }}{{ the_post.url }}"/>
-				<id>{{ site.url }}{{ the_post.url }}</id>
-				<published>{{ the_post.name | slice: 0, 10 | date_to_xmlschema }}</published>
-				<updated>{{ the_post.name | slice: 0, 10 | date_to_xmlschema }}</updated>
-				<content type="html">{{ the_post.content | markdownify | smartify | replace: 'href="/', full_href | xml_escape }}</content>
-				<author>
-					<name>{{ site.author }}</name>
-					<email>nathan.acks@{{ site.url | replace: "https://" }}</email>
-					<uri>{{ site.url }}</uri>
-				</author>
-				{% assign page_path_array = the_post.url | split: "/" %}
-				{% if site.name == "Château MaxMin()" %}
-					{% if page_path_array[1] == "engagement" or page_path_array[1] == "wedding" %}
-						<contributor>
-							<name>Carl Bower</name>
-							<email>carl@carlbower.com</email>
-							<uri>https://carlbowerphotos.com</uri>
-						</contributor>
-					{% endif %}
+		<entry>
+			<title>{{ the_post.title | xml_escape }}</title>
+			<link rel="alternate" href="{{ site.url }}{{ the_post.url }}"/>
+			<id>{{ site.url }}{{ the_post.url }}</id>
+			<published>{{ the_post.name | slice: 0, 10 | date_to_xmlschema }}</published>
+			<updated>{{ the_post.name | slice: 0, 10 | date_to_xmlschema }}</updated>
+			<content type="html">{{ the_post.content | markdownify | smartify | replace: 'href="/', full_href | xml_escape }}</content>
+			<author>
+				<name>{{ site.author }}</name>
+				<email>nathan.acks@{{ site.url | replace: "https://" }}</email>
+				<uri>{{ site.url }}</uri>
+			</author>
+			{% assign page_path_array = the_post.url | split: "/" %}
+			{% if site.name == "Château MaxMin()" %}
+				{% if page_path_array[1] == "engagement" or page_path_array[1] == "wedding" %}
+					<contributor>
+						<name>Carl Bower</name>
+						<email>carl@carlbower.com</email>
+						<uri>https://carlbowerphotos.com</uri>
+					</contributor>
 				{% endif %}
-				<rights>© {{ site.author }}{% if site.name == "Château MaxMin()" %}{% if page_path_array[1] == "engagement" or page_path_array[1] == "wedding" %} (content) &amp; Carl Bower (photography){% endif %}{% endif %}</rights>
-				<category term="{{ page_path_array[1] | split: '/' | first | xml_escape }}"/>
-			</entry>
-		{% endunless %}
+			{% endif %}
+			<rights>© {{ site.author }}{% if site.name == "Château MaxMin()" %}{% if page_path_array[1] == "engagement" or page_path_array[1] == "wedding" %} (content) &amp; Carl Bower (photography){% endif %}{% endif %}</rights>
+			<category term="{{ page_path_array[1] | split: '/' | first | xml_escape }}"/>
+		</entry>
 	{% endfor %}
 </feed>

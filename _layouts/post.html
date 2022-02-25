@@ -16,7 +16,9 @@ layout: navigation
 	{% for the_page in site.pages %}
 		{% assign page_path_array = the_page.url | split: "/" %}
 		{% if page_path_array[1] == category_name %}
-			{% assign post_list = post_list | push: the_page %}
+			{% unless the_page.content contains "#Draft" %}
+				{% assign post_list = post_list | push: the_page %}
+			{% endunless %}
 		{% endif %}
 	{% endfor %}
 	{% assign post_list = post_list | uniq | sort: "url" %}
