@@ -167,6 +167,12 @@ ul {
 	padding-left: 2.6180em;
 }
 
+blockquote {
+	margin: 1em;
+	border-left: 1px solid var(--foreground-fade);
+	padding-left: 1em;
+}
+
 table {
 	border-collapse: collapse;
 	margin: 0 auto;
@@ -174,7 +180,7 @@ table {
 
 td,
 th {
-	border: 1px solid var(--foreground);
+	border: 1px solid var(--foreground-fade);
 	padding: 0.1618033em 0.3236066em;
 }
 
