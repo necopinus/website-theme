@@ -1,5 +1,5 @@
 article img {
-	width: 100vw;
+	width: calc(100vw - 0.1545rem);
 	margin-left: -50vw;
 	margin-bottom: -0.46352475em;
 	position: relative;
