@@ -1,5 +1,5 @@
 html, body {
-	font-size: calc(min(max(3.125vw, 12pt), 15pt));
+	font-size: calc(min(max(3.125vw, 16px), 20px));
 }
 
 html {
