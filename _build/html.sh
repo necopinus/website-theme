@@ -17,13 +17,14 @@ fi
 #
 if [[ -n "$(which jekyll)" ]]; then
 	jekyll build --profile || exit 4
-elif [[ -n "$(which bundle)" ]]; then
+else
+	if [[ -x "$(which bundler)" ]]; then
+		gem install --user-install bundler
+		export PATH="$(ruby -r rubygems -e 'puts Gem.user_dir')/bin:$PATH"
+	fi
 	bundle config set path vendor/bundle || exit 8
 	bundle install || exit 3
 	bundle exec jekyll build --profile || exit 16
-else
-	echo "Cannot find Bundler, and Jekyll does not seem to be installed."
-	exit 32
 fi
 
 # Wrap tables in a div in order to make them scrollable (without
