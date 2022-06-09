@@ -72,17 +72,15 @@
 		<meta property="og:url" content="{{ site.url }}{{ page.url }}">
 
 		<link rel="stylesheet" href="/css/normalize.css">
-		<link rel="stylesheet" href="/css/code-tomorrow.css" media="print">
-		<link rel="stylesheet" href="/css/page-tomorrow.css" media="print">
 		{% if page_path_array[1] == "engagement" or page_path_array[1] == "wedding" or page_path_array[1] == "digital-orrery" or page_path_array[1] == "photography" %}
-			<link rel="stylesheet" href="/css/code-tomorrow-night-bright.css" media="screen">
-			<link rel="stylesheet" href="/css/page-tomorrow-night.css" media="screen">
+			<link rel="stylesheet" href="/css/page-everforest-dark-hard.css" media="screen">
+			<link rel="stylesheet" href="/css/code-everforest-light-hard.css" media="screen">
 		{% else %}
-			<link rel="stylesheet" href="/css/code-tomorrow-night.css" media="screen and (prefers-color-scheme: light)">
-			<link rel="stylesheet" href="/css/code-tomorrow-night-bright.css" media="screen and (prefers-color-scheme: dark)">
-			<link rel="stylesheet" href="/css/page-tomorrow.css" media="screen and (prefers-color-scheme: light)">
-			<link rel="stylesheet" href="/css/page-tomorrow-night.css" media="screen and (prefers-color-scheme: dark)">
+			<link rel="stylesheet" href="/css/page-everforest-light-hard.css" media="screen">
+			<link rel="stylesheet" href="/css/code-everforest-dark-hard.css" media="screen">
 		{% endif %}
+		<link rel="stylesheet" href="/css/page-everforest-print.css" media="print">
+		<link rel="stylesheet" href="/css/code-everforest-light-hard.css" media="print">
 		<link rel="stylesheet" href="/css/layout.css">
 		<link rel="stylesheet" href="/css/layout-967.css" media="(max-width: 967px)">
 		<link rel="stylesheet" href="/css/layout-922.css" media="(max-width: 922px)">

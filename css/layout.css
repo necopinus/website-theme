@@ -36,13 +36,14 @@ pre > kbd {
 }
 
 a {
-	color: var(--blue);
+	color: var(--green);
 	text-decoration: none;
 }
 
 a:active,
 a:hover {
-	color: var(--purple);
+	color: var(--yellow	);
+	text-decoration: underline;
 }
 
 nav {
