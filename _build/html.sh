@@ -11,20 +11,44 @@ fi
 #
 [[ -d _site ]] && rm -rf _site
 
+# Download latest Noto fonts from Google.
+#
+if [[ ! -d css/fonts ]] || [[ ! -d _includes ]]; then
+	rm -rf css/fonts css/fonts.css css/fonts-print.css _includes
+	mkdir -p css/fonts _includes
+	(
+		cd css/fonts
+
+		for WOFF in $(cat ../_fonts.css | sed -e 's/^.*src:.*url(//;/^\s.*/d;/^[^h].*/d;s/).*//' | xargs); do
+			curl -sS -L -O $WOFF
+			echo "<link rel=\"preload\" href=\"/css/fonts/$(echo "$WOFF" | sed -e "s#.*/##")\" as=\"font\" type=\"font/woff2\" crossorigin>" >> ../../_includes/font-headers.html
+		done
+		cat ../_fonts.css | sed -e 's#url(https.*/#url(/css/fonts/#' > ../fonts.css
+
+		for WOFF in $(cat ../_fonts-print.css | sed -e 's/^.*src:.*url(//;/^\s.*/d;/^[^h].*/d;s/).*//' | xargs); do
+			curl -sS -L -O $WOFF
+			echo "<link rel=\"prefetch\" href=\"/css/fonts/$(echo "$WOFF" | sed -e "s#.*/##")\" as=\"font\" type=\"font/woff2\" crossorigin>" >> ../../_includes/font-headers.html
+		done
+		cat ../_fonts-print.css | sed -e 's#url(https.*/#url(/css/fonts/#' > ../fonts-print.css
+	)
+fi
+
 # Build the site using either system Jekyll (assume that our
 # environment has installed the necessary gems automatically) or via
 # bundler.
 #
 if [[ -n "$(which jekyll)" ]]; then
-	jekyll build --profile || exit 4
+	jekyll build --profile
 else
-	if [[ -x "$(which bundler)" ]]; then
+	if [[ ! -x "$(which bundler)" ]]; then
 		gem install --user-install bundler
 		export PATH="$(ruby -r rubygems -e 'puts Gem.user_dir')/bin:$PATH"
 	fi
-	bundle config set path vendor/bundle || exit 8
-	bundle install || exit 3
-	bundle exec jekyll build --profile || exit 16
+	if [[ ! -d vendor/bundle ]]; then
+		bundle config set path vendor/bundle
+		bundle install
+	fi
+	bundle exec jekyll build --profile
 fi
 
 # Wrap tables in a div in order to make them scrollable (without
@@ -34,7 +58,9 @@ find _site -type f -iname '*.html' -exec sed -i -e 's#<table>#<div class="table-
 
 # Make all URLs relative (required for most web3 hosting solutions).
 #
-npm install
+if [[ ! -d node_modules ]]; then
+	npm install
+fi
 (
 	cd _site
 	../node_modules/.bin/all-relative
@@ -44,9 +70,9 @@ npm install
 #
 # Current version: 2.9.22 (last checked 2021-11-14)
 #
-# It's too bad we need to cart this binary around as part of the repo,
-# but Fleek doesn't support installing our own tools (otherwise we'd
-# just `apt install minify`).
+# It's too bad we need to cart this binary around as part of the
+# repo, but Fleek doesn't support installing our own tools
+# (otherwise we'd just `apt install minify`).
 #
 chmod +x _build/minify
 cp -rf _site _site.original

@@ -1,0 +1,19 @@
+/*
+ * Everforest Light Hard
+ * https://gist.github.com/sainnhe/6432f83181c4520ea87b5211fed27950
+ * https://github.com/sainnhe/everforest-vscode/blob/master/themes/everforest-light.json
+*/
+
+:root {
+	--background: #fff9e8;
+	--foreground: #5c6a72;
+	--de-emphasis: #939f91;
+	--selection: #8da10124;
+	--scrollbar: #8da10153;
+	--red: #f85552;
+	--yellow: #dfa000;
+	--green: #8da101;
+	--aqua: #35a77c;
+	--blue: #3a94c5;
+	--purple: #df69ba;
+}

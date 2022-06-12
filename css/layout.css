@@ -1,5 +1,5 @@
 html, body {
-	font-size: calc(min(max(3.125vw, 16px), 20px));
+	font-size: calc(min(max(2.153499vw, 16px), 20px));
 }
 
 html {
@@ -7,7 +7,9 @@ html {
 }
 
 body {
-	font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Roboto, "Droid Sans", Oxygen, "Fira Sans", Ubuntu, Cantarell, "Helvetica Neue", "Calibri", "Liberation Sans", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+	/* font-family: "Noto Sans", sans-serif, "Noto Emoji"; */
+	font-family: "Noto Sans Mono", monospace, monospace, "Noto Emoji";
+	font-weight: 300;
 	color: var(--foreground);
 	background-color: var(--background);
 	line-height: 1.618033;
@@ -17,22 +19,21 @@ body {
 	align-items: stretch;
 }
 
+strong {
+	font-weight: 500;
+}
+
 code,
 kbd {
-	font-family: SFMono-Regular, Menlo, Monaco, "Cascadia Mono", "Segoe UI Mono", Consolas, "Roboto Mono", "Droid Sans Mono", "Fira Mono", "Source Code Pro", "Liberation Mono", "Courier New", Courier, monospace, monospace;
+	font-family: "Noto Sans Mono", monospace, monospace;
+	color: var(--de-emphasis);
 }
 
 pre {
-	font-size: 85.4377%; /* 100-(1.618033*9) */
-	font-family: SFMono-Regular, Menlo, Monaco, "Cascadia Mono", "Segoe UI Mono", Consolas, "Roboto Mono", "Droid Sans Mono", "Fira Mono", "Source Code Pro", "Liberation Mono", "Courier New", Courier, monospace, monospace;
+	font-family: "Noto Sans Mono", monospace, monospace;;
 	margin-top: 0;
 	margin-bottom: 0;
 	overflow-x: auto;
-}
-
-pre > code,
-pre > kbd {
-	font-size: 100%;
 }
 
 a {
@@ -43,12 +44,11 @@ a {
 a:active,
 a:hover {
 	color: var(--yellow	);
-	text-decoration: underline;
 }
 
 nav {
 	flex: 0 0 auto;
-	border-bottom: 1px solid var(--foreground-fade);
+	border-bottom: 1px solid var(--de-emphasis);
 }
 
 nav ul {
@@ -71,17 +71,7 @@ nav ul li:first-child {
 	padding-top: 0;
 	padding-left: 0;
 	text-align: left;
-	font-weight: bold;
-}
-
-nav ul li:first-child a,
-h1 a, /* Hide inappropriate iOS linkification */
-h2 a,
-h3 a,
-h4 a,
-h5 a,
-h6 a {
-	color: var(--foreground);
+	font-weight: 500;
 }
 
 nav ul li:last-child {
@@ -104,34 +94,40 @@ article img {
 
 h1 {
 	font-size: 161.8033%;
+	font-weight: 500;
 	margin: 1.618033em auto 1em;
 	padding-bottom: 0.1545em;
 	text-align: center;
-	border-bottom: 1px solid var(--foreground-fade);
+	border-bottom: 1px solid var(--de-emphasis);
 }
 
 h2 {
 	font-size: 131.0820%;
+	font-weight: 500;
 	margin: 1.618033em 0 1em;
 }
 
 h3 {
 	font-size: 115.6317%;
+	font-weight: 500;
 	margin: 1.618033em 0 1em;
 }
 
 h4 {
 	font-size: 107.8615%;
+	font-weight: 500;
 	margin: 1.618033em 0 1em;
 }
 
 h5 {
 	font-size: 103.9537%;
+	font-weight: 500;
 	margin: 1.618033em 0 1em;
 }
 
 h6 {
 	font-size: 101.9883%;
+	font-weight: 500;
 	margin: 1.618033em 0 1em;
 }
 
@@ -173,7 +169,7 @@ ul {
 
 blockquote {
 	margin: 1em;
-	border-left: 1px solid var(--foreground-fade);
+	border-left: 1px solid var(--de-emphasis);
 	padding-left: 1em;
 }
 
@@ -184,13 +180,13 @@ table {
 
 td,
 th {
-	border: 1px solid var(--foreground-fade);
+	border: 1px solid var(--de-emphasis);
 	padding: 0.1618033em 0.3236066em;
 }
 
 hr {
 	border: 0;
-	border-bottom: 1px solid var(--foreground-fade);
+	border-bottom: 1px solid var(--de-emphasis);
 	margin: 1.618033em auto;
 	width: 61.8033%;
 }
@@ -201,7 +197,7 @@ hr:last-of-type {
 
 footer {
 	flex: 0 0 auto;
-	border-top: 1px solid var(--foreground-fade);
+	border-top: 1px solid var(--de-emphasis);
 }
 
 footer ul {
@@ -232,7 +228,7 @@ footer ul li:last-child {
 
 * {
 	scrollbar-width: thin;
-	scrollbar-color: var(--foreground-fade) var(--background);
+	scrollbar-color: var(--scrollbar) transparent;
  }
   
 *::-webkit-scrollbar {
@@ -241,18 +237,24 @@ footer ul li:last-child {
 }
   
 *::-webkit-scrollbar-track {
-	background: var(--background);
+	background-color: transparent;
 }
   
 *::-webkit-scrollbar-corner {
-	background: var(--background);
+	background-color: transparent;
 }
 
 *::-webkit-scrollbar-thumb {
-	background-color: var(--foreground-fade);
+	background-color: var(--scrollbar);
 	border-radius: 0.1545rem;
 	border: none;
-}  
+}
+
+/* Selection Styling */
+
+::selection {
+	background-color: var(--selection);
+}
 
 /* General per-class and ID styling */
 
@@ -261,7 +263,7 @@ footer ul li:last-child {
 }
 
 .inner-wrapper {
-	max-width: 32rem;
+	max-width: 72ch;
 	margin: 0 auto;
 }
 

@@ -1,6 +1,11 @@
+/* Everforest Light Hard
+ * https://gist.github.com/sainnhe/6432f83181c4520ea87b5211fed27950
+ * https://github.com/sainnhe/everforest-vscode/blob/master/themes/everforest-light.json
+ */
+
 .highlight         { color: #5c6a72; background-color: #fff9e8; }
-.highlight .hll    {                   background-color: #f8f0dc; } /* Highlighted.Line */
-.highlight .lineno { color: #939f91; background-color: #f8f0dc; } /* Line.Number */
+.highlight .hll    {                   background-color: #8da10153; } /* Highlighted.Line */
+.highlight .lineno { color: #a4ad9ea0; } /* Line.Number */
 .highlight .c      { color: #939f91; font-style:          italic; } /* Comment */
 .highlight .err    { color: #f85552;                              } /* Error */
 .highlight .g      { color: #5c6a72;                              } /* Generic */

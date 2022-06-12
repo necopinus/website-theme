@@ -3,16 +3,21 @@ html, body {
 }
 
 body {
-	font-family: Tinos, "Noto Serif", Cambria, "Times New Roman", "Liberation Serif", Times, serif;
+	font-family: "Noto Serif", serif, "Noto Emoji";
+	font-weight: 400;
+}
+
+strong {
+	font-weight: 700;
 }
 
 code,
 kbd {
-	font-size: 87.0557%;
+	font-size: 87.0557%; /* 100-(1.618033*8) */
 }
 
 pre {
-	font-size: 83.8196%;
+	font-size: 83.8196%; /* 100-(1.618033*10) */
 }
 
 pre > code,
@@ -21,6 +26,7 @@ pre > kbd {
 }
 
 a {
+	color: var(--blue);
 	text-decoration: underline;
 }
 
@@ -36,6 +42,7 @@ h4,
 h5,
 h6 {
 	break-after: avoid;
+	font-weight: 700;
 }
 
 h1:first-of-type {
