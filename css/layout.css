@@ -71,7 +71,6 @@ nav ul li:first-child {
 	padding-top: 0;
 	padding-left: 0;
 	text-align: left;
-	font-weight: 500;
 }
 
 nav ul li:last-child {
@@ -96,7 +95,7 @@ h1 {
 	font-size: 161.8033%;
 	font-weight: 500;
 	margin: 1.618033em auto 1em;
-	padding-bottom: 0.1545em;
+	padding-bottom: 0.3090rem;
 	text-align: center;
 	border-bottom: 1px solid var(--de-emphasis);
 }
@@ -279,15 +278,9 @@ nav span#logo {
 	vertical-align: middle;
 }
 
-nav img#logo {
-	margin-right: 0.3090em;
-	font-size: 161.8033%;
-	height: 1.618033em;
-	border-radius: 50%;
-	vertical-align: middle;
-}
-
 div.highlight {
+	width: calc(100% + 0.618033rem);
+	margin-left: -0.927050rem;
 	padding: 0.3090rem 0.618033rem;
 	border-radius: 0.618033rem;
 }
@@ -305,13 +298,10 @@ pre.highlight {
 	text-align: center;
 }
 
-.homepage img#logo {
-	display: block;
-	width: 61.8033%;
-	margin: 2.2360rem auto;
-	border-radius: 50%;
-}
-
 .homepage #logo + h1 {
 	margin-top: 0;
+}
+
+.site-title {
+	font-weight: 500;
 }

@@ -1,10 +1,11 @@
 html, body {
-	font-size: 12pt;
+	font-size: 11pt;
 }
 
 body {
 	font-family: "Noto Serif", serif, "Noto Emoji";
 	font-weight: 400;
+	padding-left: 1rem; /* WHY?!?!? */	
 }
 
 strong {
@@ -12,12 +13,13 @@ strong {
 }
 
 code,
-kbd {
+kbd,
+pre {
 	font-size: 87.0557%; /* 100-(1.618033*8) */
 }
 
 pre {
-	font-size: 83.8196%; /* 100-(1.618033*10) */
+	white-space: pre-wrap;
 }
 
 pre > code,
@@ -65,6 +67,8 @@ pre {
 }
 
 div.highlight {
+	width: 100%;
+	margin-left: 0;
 	padding: 0;
 	border-radius: 0;
 }
