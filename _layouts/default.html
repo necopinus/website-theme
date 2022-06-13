@@ -17,7 +17,7 @@
 
 		<title>{{ page_title | lstrip | rstrip | smartify }}</title>
 
-		<link rel="icon" href="/{{ site.icon }}">
+		<link rel="icon" href="/favicon.webp">
 		<link rel="alternate" type="application/atom+xml" title="{{ site.title }}" href="/atom.xml">
 
 		{% assign page_path_array = page.url | split: "/" %}
@@ -39,7 +39,7 @@
 		
 		<meta name="description" content="{{ page_description }}">
 
-		{% assign page_image = site.image %}
+		{% assign page_image = "/banner.webp" %}
 		{% assign page_fragments = page.content | split: "![" %}
 		{% for page_fragment in page_fragments %}
 			{% if page_fragment contains "](" %}
@@ -82,8 +82,6 @@
 		{% endif %}
 		<link rel="stylesheet" href="/css/layout.css">
 		<link rel="stylesheet" href="/css/layout-934.css" media="(max-width: 934px)">
-		<link rel="stylesheet" href="/css/layout-922.css" media="(max-width: 922px)">
-		<link rel="stylesheet" href="/css/layout-788.css" media="(max-width: 788px)">
 		<link rel="stylesheet" href="/css/fonts-print.css" media="print">
 		<link rel="stylesheet" href="/css/page-print.css" media="print">
 		<link rel="stylesheet" href="/css/code-print.css" media="print">

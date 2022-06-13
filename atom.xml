@@ -19,8 +19,8 @@ layout: none
 	</author>
 	<id>{{ site.url | xml_escape }}</id>
 	<generator uri="https://jekyllrb.com" version="{{ jekyll.version }}">Jekyll v{{ jekyll.version }}</generator>
-	<icon>{{ site.url | append: "/" | append: site.icon | xml_escape }}</icon>
-	<logo>{{ site.url | append: site.image | xml_escape }}</logo>
+	<icon>{{ site.url | append: "/favicon.webp" | xml_escape }}</icon>
+	<logo>{{ site.url | append: "/banner.webp" | xml_escape }}</logo>
 	<rights>© {{ site.author }}</rights>
 
 	{% assign post_list = "" | split: "" %}

@@ -3,7 +3,7 @@ layout: none
 ---
 title: {{ site.name }}
 gpubVersion: 1.0.0
-cover: {{ site.cover }}
+cover: cover.jpg
 index: index.html
 language: en-US
 description: {{ site.description }}
