@@ -67,8 +67,8 @@ body > div {
 }
 
 article img {
-	width: 48rem;
-	margin-left: -8rem;
+	width: calc(72ch + 1.618033rem + 1.618033rem);
+	margin-left: -1.618033rem;
 	margin-bottom: -0.46352475em;
 	position: relative;
 	left: 0;
