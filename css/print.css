@@ -30,6 +30,7 @@ pre > kbd {
 a {
 	color: var(--blue);
 	text-decoration: underline;
+	font-weight: inherit;
 }
 
 footer,
@@ -45,10 +46,6 @@ h5,
 h6 {
 	break-after: avoid;
 	font-weight: 700;
-}
-
-h1:first-of-type {
-	margin-top: 0;
 }
 
 pre {

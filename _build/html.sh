@@ -56,6 +56,28 @@ fi
 #
 find _site -type f -iname '*.html' -exec sed -i -e 's#<table>#<div class="table-wrapper"><table>#g;s#</table>#</table></div>#g' "{}" \;
 
+# Use &mdash; instead of "-" as a separator for dates in post links.
+#
+find _site -type f \( -iname '*.html' -o -iname '*.xml' \) -exec sed -i -e 's#>\([0-9]\{4\}\)-\([0-9]\{2\}\)-\([0-9]\{2\}\) - \([^<>]\+\)#>\1-\2-\3 \&mdash; \4#g' "{}" \;
+
+# Fix Dataview tags.
+#
+find _site -type f \( -iname '*.html' -o -iname '*.xml' \) -exec sed -i -e 's#author:: #<strong>author:</strong> #g' "{}" \;
+find _site -type f \( -iname '*.html' -o -iname '*.xml' \) -exec sed -i -e 's#conditions:: #<strong>conditions:</strong> #g' "{}" \;
+find _site -type f \( -iname '*.html' -o -iname '*.xml' \) -exec sed -i -e 's#date:: #<strong>date:</strong> #g' "{}" \;
+find _site -type f \( -iname '*.html' -o -iname '*.xml' \) -exec sed -i -e 's#issue:: #<strong>issue:</strong> #g' "{}" \;
+find _site -type f \( -iname '*.html' -o -iname '*.xml' \) -exec sed -i -e 's#location:: #<strong>location:</strong> #g' "{}" \;
+find _site -type f \( -iname '*.html' -o -iname '*.xml' \) -exec sed -i -e 's#newsletter:: #<strong>newsletter:</strong> #g' "{}" \;
+find _site -type f \( -iname '*.html' -o -iname '*.xml' \) -exec sed -i -e 's#photographer:: #<strong>photographer:</strong> #g' "{}" \;
+find _site -type f \( -iname '*.html' -o -iname '*.xml' \) -exec sed -i -e 's#tags:: #<strong>tags:</strong> #g' "{}" \;
+find _site -type f \( -iname '*.html' -o -iname '*.xml' \) -exec sed -i -e 's#volume:: #<strong>volume:</strong> #g' "{}" \;
+
+# Fixing the data view tags, above, treats out atom feed the same
+# as regular HTML. This will lead to an invalid feed, and thus
+# needs to be fixed.
+#
+sed -i -e 's#<strong>#\&lt;strong>#g;s#</strong>#\&lt;/strong>#g' _site/atom.xml
+
 # Make all URLs relative (required for most web3 hosting solutions).
 #
 if [[ ! -d node_modules ]]; then

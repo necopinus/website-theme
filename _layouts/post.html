@@ -8,47 +8,28 @@ layout: navigation
 </article>
 
 <footer class="outer-wrapper">
-	{% assign page_path_array = page.url | split: "/" %}
-	{% assign category_name = page_path_array[1] %}
-
-	{% assign post_list = "" | split: "" %}
-
-	{% for the_page in site.pages %}
-		{% assign page_path_array = the_page.url | split: "/" %}
-		{% if page_path_array[1] == category_name %}
-			{% unless the_page.content contains "#Draft" %}
-				{% assign post_list = post_list | push: the_page %}
-			{% endunless %}
-		{% endif %}
-	{% endfor %}
-	{% assign post_list = post_list | uniq | sort: "url" %}
-
-	{% for the_post in post_list %}
-		{% if the_post.url == page.url %}
-			{% assign post_index = forloop.index0 %}
-			{% break %}
-		{% endif %}
-	{% endfor %}
-
-	{% assign post_before = post_index | minus: 1 %}
-	{% assign post_after = post_index | plus: 1 %}
-	{% assign post_last = post_list.size | minus: 1 %}
-
-	<ul>
-		<li>©️ {{ site.author }}{% if category_name == "engagement" or category_name == "wedding" %} (text)<br>©️ Carl Bower (photo){% endif %}</li>
-		<li>
-		{% if post_before < 0 %}
-			<span class="inactive-link"><span aria-hidden="true">‹ </span>Previous</span>
-		{% else %}
-			<a href="{{ post_list[post_before].url }}" class="inactive-link"><span aria-hidden="true">‹ </span>Previous</a>
-		{% endif %}
-		<span aria-hidden="true"> | </span>
-		{% if post_after > post_last %}
-			<span class="inactive-link">Next<span aria-hidden="true"> ›</span></span>
-		{% else %}
-			<a href="{{ post_list[post_after].url }}" class="inactive-link">Next<span aria-hidden="true"> ›</span></a>
-		{% endif %}
-		</li>
-		<li><a href="https://github.com/necopinus/{{ site.url  | replace: 'https://' }}/blob/main/{{ page.path }}"><span aria-hidden="true">[ </span>Source<span aria-hidden="true"> ]</span></a></li>
-	</ul>
+	<div class="inner-wrapper">
+		<p>Site navigation:</p>
+		<ul>
+			<li><a href="/index.html">Home</a></li>
+			{% if site.name == "Cardboard Iguana Security" %}
+				<li><a href="/log.html">A Hacker’s Log</a></li>
+				<li><a href="/notes.html">A Hacker’s Notes</a></li>
+			{% elsif site.name == "Château MaxMin()" %}
+				<li><a href="/engagement.html">Engagement Photos</a></li>
+				<li><a href="/wedding.html">Wedding Photos</a></li>
+			{% elsif site.name == "necopinus.xyz" %}
+				<li><a href="/photography.html">Photography</a></li>
+				<li><a href="/essays.html">Essays</a></li>
+				<li><a href="/poetry.html">Poetry</a></li>
+				<li><a href="/newsletters.html">Newsletter Archive</a></li>
+			{% endif %}
+			<li><a href="/atom.xml">Site Feed</a></li>
+		</ul>
+		<p>Page information:</p>
+		<ul>
+			<li><a href="https://github.com/necopinus/{{ site.url  | replace: 'https://' }}/blob/main/{{ page.path }}">View on GitHub</a></li>
+			<li>©️ {{ site.author }}{% if category_name == "engagement" or category_name == "wedding" %} (text) &amp; Carl Bower (photo){% endif %}</li>
+		</ul>
+	</div>
 </footer>

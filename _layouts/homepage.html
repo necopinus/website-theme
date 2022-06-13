@@ -9,8 +9,15 @@ layout: default
 </div>
 
 <footer class="outer-wrapper">
-	<ul>
-		<li>©️ {{ site.author }}</li>
-		<li><a href="https://github.com/necopinus/{{ site.url  | replace: 'https://' }}/blob/main/{{ page.path }}"><span aria-hidden="true">[ </span>Source<span aria-hidden="true"> ]</span></a></li>
-	</ul>
+	<div class="inner-wrapper">
+		<p>Site navigation:</p>
+		<ul>
+			<li><a href="/atom.xml">Site Feed</a></li>
+		</ul>
+		<p>Page information:</p>
+		<ul>
+			<li><a href="https://github.com/necopinus/{{ site.url  | replace: 'https://' }}/blob/main/{{ page.path }}">View on GitHub</a></li>
+			<li>©️ {{ site.author }}</li>
+		</ul>
+	</div>
 </footer>

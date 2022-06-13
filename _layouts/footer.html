@@ -4,8 +4,28 @@ layout: navigation
 {{ content }}
 
 <footer class="outer-wrapper">
-	<ul>
-		<li>©️ {{ site.author }}</li>
-		<li><a href="https://github.com/necopinus/{{ site.url  | replace: 'https://' }}/blob/main/{{ page.path }}"><span aria-hidden="true">[ </span>Source<span aria-hidden="true"> ]</span></a></li>
-	</ul>
+	<div class="inner-wrapper">
+		<p>Site navigation:</p>
+		<ul>
+			<li><a href="/index.html">Home</a></li>
+			{% if site.name == "Cardboard Iguana Security" %}
+				<li><a href="/log.html">A Hacker’s Log</a></li>
+				<li><a href="/notes.html">A Hacker’s Notes</a></li>
+			{% elsif site.name == "Château MaxMin()" %}
+				<li><a href="/engagement.html">Engagement Photos</a></li>
+				<li><a href="/wedding.html">Wedding Photos</a></li>
+			{% elsif site.name == "necopinus.xyz" %}
+				<li><a href="/photography.html">Photography</a></li>
+				<li><a href="/essays.html">Essays</a></li>
+				<li><a href="/poetry.html">Poetry</a></li>
+				<li><a href="/newsletters.html">Newsletter Archive</a></li>
+			{% endif %}
+			<li><a href="/atom.xml">Site Feed</a></li>
+		</ul>
+		<p>Page information:</p>
+		<ul>
+			<li><a href="https://github.com/necopinus/{{ site.url  | replace: 'https://' }}/blob/main/{{ page.path }}">View on GitHub</a></li>
+			<li>©️ {{ site.author }}</li>
+		</ul>
+	</div>
 </footer>

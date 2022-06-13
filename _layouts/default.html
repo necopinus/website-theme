@@ -15,9 +15,7 @@
 			{% endfor %}
 		{% endunless %}
 
-		{% assign page_title = page_title | remove: "🎐" | remove: "📸" | remove: "📯" | remove: "🌲" | remove: "💑" | remove: "📷" | remove: "🔮" | remove: "🏡" | remove: "📚" | remove: "📓" | remove: "💒" | remove: "💍" | remove: "📦" | remove: "🦎" | remove: "🛡️" | remove: "🐦" | remove: "🐙" | remove: "📄" | remove: "🌃" | remove: "🔏" | remove: "📧" | remove: "👤" | remove: "🏷️" | remove: "👥" | remove: "📅" | lstrip | rstrip | smartify %}
-
-		<title>{{ page_title }}</title>
+		<title>{{ page_title | lstrip | rstrip | smartify }}</title>
 
 		<link rel="icon" href="/{{ site.icon }}">
 		<link rel="alternate" type="application/atom+xml" title="{{ site.title }}" href="/atom.xml">

@@ -2,21 +2,26 @@
 layout: default
 ---
 <nav class="outer-wrapper">
-	<ul>
-		<li><a href="/index.html"><span title="{{ site.name }}" aria-hidden="true" id="logo">{{ site.logo }}</span><span class="site-title"> {{ site.name }}</span></a></li>
-		{% if site.name == "Cardboard Iguana Security" %}
-			<li><a href="/log.html"><span aria-hidden="true">📓 </span>Log</a></li>
-			<li><a href="/notes.html"><span aria-hidden="true">📚 </span>Notes</a></li>
-		{% elsif site.name == "Château MaxMin()" %}
-			<li><a href="/engagement.html"><span aria-hidden="true">💍 </span>Engagement</a></li>
-			<li><a href="/wedding.html"><span aria-hidden="true">💒 </span>Wedding</a></li>
-		{% elsif site.name == "necopinus.xyz" %}
-			<li><a href="/photography.html"><span aria-hidden="true">📸 </span>Photography</a></li>
-			<li><a href="/essays.html"><span aria-hidden="true">✒️ </span>Essays</a></li>
-			<li><a href="/poetry.html"><span aria-hidden="true">🎐 </span>Poetry</a></li>
-			<li><a href="/newsletters.html"><span aria-hidden="true">📯 </span>Newsletters</a></li>
+	<div class="inner-wrapper">
+		{% assign page_path_array = page.url | split: "/" %}
+		{% if page_path_array.size > 2 %}
+			{% assign category_name = page_path_array[1] %}
+			{% assign category_page_url = "/" | append: category_name | append: ".html" %}
+			{% assign category_page = site.pages | find: "url", category_page_url %}
+			{% unless category_page %}
+				{% assign category_name = "NONE" %}
+			{% endunless %}
+		{% else %}
+			{% assign category_name = "NONE" %}
 		{% endif %}
-		<li><a href="/atom.xml"><span aria-hidden="true">📰 </span>Feed</a></li>
-	</ul>
+
+		<ul>
+			<li><a href="/index.html"><span title="{{ site.name }}" aria-hidden="true" id="logo">{{ site.logo }}</span> {{ site.name }}</a></li>
+			{% unless category_name == "NONE" %}
+				<li><a href="{{ category_page.url }}">{{ category_page.title }}</a></li>
+			{% endunless %}
+		</ul>
+	</div>
 </nav>
+
 {{ content }}
