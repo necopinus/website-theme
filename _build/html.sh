@@ -19,13 +19,13 @@ if [[ ! -d css/fonts ]] || [[ ! -d _includes ]]; then
 	(
 		cd css/fonts
 
-		for WOFF in $(cat ../_fonts.css | sed -e 's/^.*src:.*url(//;/^\s.*/d;/^[^h].*/d;s/).*//' | xargs); do
+		for WOFF in $(cat ../_fonts.css | sed -e 's/^.*src:.*url(//;/^\s.*/d;/^[^h].*/d;s/).*//' | sort -u | xargs); do
 			wget --no-verbose $WOFF
 			echo "<link rel=\"preload\" href=\"/css/fonts/$(echo "$WOFF" | sed -e "s#.*/##")\" as=\"font\" type=\"font/woff2\" crossorigin>" >> ../../_includes/font-headers.html
 		done
 		cat ../_fonts.css | sed -e 's#url(https.*/#url(/css/fonts/#' > ../fonts.css
 
-		for WOFF in $(cat ../_fonts-print.css | sed -e 's/^.*src:.*url(//;/^\s.*/d;/^[^h].*/d;s/).*//' | xargs); do
+		for WOFF in $(cat ../_fonts-print.css | sed -e 's/^.*src:.*url(//;/^\s.*/d;/^[^h].*/d;s/).*//' | sort -u | xargs); do
 			wget --no-verbose $WOFF
 			echo "<link rel=\"prefetch\" href=\"/css/fonts/$(echo "$WOFF" | sed -e "s#.*/##")\" as=\"font\" type=\"font/woff2\" crossorigin>" >> ../../_includes/font-headers.html
 		done
