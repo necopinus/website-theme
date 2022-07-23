@@ -3,7 +3,7 @@ html, body {
 }
 
 body {
-	font-family: "Noto Serif", serif, "Noto Emoji";
+	font-family: "Noto Serif", Tinos, Cambria, "Times New Roman", "Liberation Serif", Times, serif, "Noto Emoji";
 	font-weight: 400;
 	padding-left: 1rem; /* WHY?!?!? */	
 }

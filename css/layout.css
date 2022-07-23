@@ -7,8 +7,7 @@ html {
 }
 
 body {
-	/* font-family: "Noto Sans", sans-serif, "Noto Emoji"; */
-	font-family: "Noto Sans Mono", monospace, monospace, "Noto Emoji";
+	font-family: "Noto Sans Mono", SFMono-Regular, Menlo, Monaco, "Cascadia Mono", "Segoe UI Mono", Consolas, "Roboto Mono", "Droid Sans Mono", "Fira Mono", "Source Code Pro", "Liberation Mono", "Courier New", Courier, monospace, monospace, "Noto Emoji", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 	font-weight: 300;
 	color: var(--foreground);
 	background-color: var(--background);
@@ -25,12 +24,12 @@ strong {
 
 code,
 kbd {
-	font-family: "Noto Sans Mono", monospace, monospace;
+	font-family: "Noto Sans Mono", SFMono-Regular, Menlo, Monaco, "Cascadia Mono", "Segoe UI Mono", Consolas, "Roboto Mono", "Droid Sans Mono", "Fira Mono", "Source Code Pro", "Liberation Mono", "Courier New", Courier, monospace, monospace;
 	color: var(--de-emphasis);
 }
 
 pre {
-	font-family: "Noto Sans Mono", monospace, monospace;;
+	font-family: "Noto Sans Mono", SFMono-Regular, Menlo, Monaco, "Cascadia Mono", "Segoe UI Mono", Consolas, "Roboto Mono", "Droid Sans Mono", "Fira Mono", "Source Code Pro", "Liberation Mono", "Courier New", Courier, monospace, monospace;
 	margin-top: 0;
 	margin-bottom: 0;
 	overflow-x: auto;
